@@ -40,14 +40,30 @@ public interface JpaConst {
     String REP_COL_CREATED_AT = "created_at"; //登録日時
     String REP_COL_UPDATED_AT = "updated_at"; //更新日時
 
+    //いいねテーブル
+    String TABLE_YOINE = "yoines"; //テーブル名
+    //いいねテーブルカラム
+    String YOINE_COL_ID = "id"; //id
+    String YOINE_COL_REP = "report_id"; //日報のid
+    String YOINE_COL_EMP = "employee_id"; //いいねした従業員のid
+    String YOINE_COL_CREATED_AT = "created_at"; //登録日時
+    String YOINE_COL_UPDATED_AT = "updated_at"; //更新日時
+    String YOINE_COL_DELETE_FLAG = "delete_flag"; //削除フラグ
+
+    int YOINE_DEL_TRUE = 1; //削除フラグON(削除済み)
+    int YOINE_DEL_FALSE = 0; //削除フラグOFF(現役)
+
     //Entity名
     String ENTITY_EMP = "employee"; //従業員
     String ENTITY_REP = "report"; //日報
+    String ENTITY_YOINE = "yoine"; //いいね
 
     //JPQL内パラメータ
     String JPQL_PARM_CODE = "code"; //社員番号
     String JPQL_PARM_PASSWORD = "password"; //パスワード
     String JPQL_PARM_EMPLOYEE = "employee"; //従業員
+    String JPQL_PARM_REPORT = "report"; //日報
+    String JPQL_PARM_YOINE = "yoine"; //いいね
 
     //NamedQueryの nameとquery
     //全ての従業員をidの降順に取得する
@@ -74,5 +90,17 @@ public interface JpaConst {
     //指定した従業員が作成した日報の件数を取得する
     String Q_REP_COUNT_ALL_MINE = ENTITY_REP + ".countAllMine";
     String Q_REP_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+    //全てのいいねをidの降順に取得する
+    String Q_YOINE_GET_ALL = ENTITY_YOINE + ".getAll";
+    String Q_YOINE_GET_ALL_DEF = "SELECT r FROM Yoine AS r ORDER BY r.id DESC";
+    //全てのいいねの件数を取得する
+    String Q_YOINE_COUNT = ENTITY_YOINE + ".count";
+    String Q_YOINE_COUNT_DEF = "SELECT COUNT(e) FROM Yoine AS e";
+    //指定した日報のいいねを全件idの降順で取得する
+    String Q_YOINE_GET_ALL_YOINE = ENTITY_YOINE + ".getAllYoine";
+    String Q_YOINE_GET_ALL_YOINE_DEF = "SELECT y FROM Yoine AS y WHERE y.report = :" + JPQL_PARM_REPORT + " ORDER BY y.id DESC";
+    //指定した日報のいいねの件数を取得する
+    String Q_YOINE_COUNT_ALL_YOINE = ENTITY_YOINE + ".countAllYoine";
+    String Q_YOINE_COUNT_ALL_YOINE_DEF = "SELECT COUNT(y) FROM Yoine AS y WHERE y.report = :" + JPQL_PARM_REPORT;
 
 }

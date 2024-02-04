@@ -4,8 +4,10 @@
 <%@ page import="constants.ForwardConst" %>
 
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
+<c:set var="actYoi" value="${ForwardConst.ACT_YOINE.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commEdt" value="${ForwardConst.CMD_EDIT.getValue()}" />
+<c:set var="commCrt" value="${ForwardConst.CMD_CREATE.getValue()}" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
@@ -39,6 +41,16 @@
                 </tr>
             </tbody>
         </table>
+
+
+
+            <form method="POST" action="<c:url value='?action=${actYoi}&command=${commCrt}' />">
+                <input type="hidden" name="${AttributeConst.YOINE_ID.getValue()}" value="${yoine.id}" />
+                <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
+                <button type="submit">いいね</button>
+            </form>
+
+
 
         <c:if test="${sessionScope.login_employee.id == report.employee.id}">
             <p>
