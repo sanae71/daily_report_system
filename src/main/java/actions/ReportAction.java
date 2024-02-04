@@ -148,6 +148,8 @@ public class ReportAction extends ActionBase {
      */
     public void show() throws ServletException, IOException {
 
+        putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
+
         //idを条件に日報データを取得する
         ReportView rv = service.findOne(toNumber(getRequestParam(AttributeConst.REP_ID)));
 

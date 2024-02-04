@@ -42,6 +42,7 @@ public class YoineAction extends ActionBase {
         //CSRF対策 tokenのチェック
         if (checkToken()) {
 
+
             //日報のidを取得
             ReportView rv = (ReportView) getSessionScope(AttributeConst.REP_ID);
 
