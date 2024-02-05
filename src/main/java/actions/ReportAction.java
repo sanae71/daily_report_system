@@ -159,6 +159,7 @@ public class ReportAction extends ActionBase {
 
         } else {
 
+            putSessionScope(AttributeConst.REPORT, rv);
             putRequestScope(AttributeConst.REPORT, rv); //取得した日報データ
 
             //詳細画面を表示

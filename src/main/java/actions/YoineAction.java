@@ -44,7 +44,7 @@ public class YoineAction extends ActionBase {
 
 
             //日報のidを取得
-            ReportView rv = (ReportView) getSessionScope(AttributeConst.REP_ID);
+            ReportView rv = (ReportView) getSessionScope(AttributeConst.REPORT);
 
             //セッションからログイン中の従業員情報を取得
             EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
