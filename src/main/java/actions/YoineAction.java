@@ -8,6 +8,7 @@ import actions.views.EmployeeView;
 import actions.views.ReportView;
 import actions.views.YoineView;
 import constants.AttributeConst;
+import constants.ForwardConst;
 import services.YoineService;
 
 /**
@@ -62,7 +63,7 @@ public class YoineAction extends ActionBase {
             service.create(yv);
 
             //詳細画面にリダイレクト
-//            redirect(ForwardConst.ACT_REP, ForwardConst.CMD_SHOW);
+            redirect2(ForwardConst.ACT_REP, ForwardConst.CMD_SHOW, rv.getId());
 
         }
     }
