@@ -162,6 +162,10 @@ public class ReportAction extends ActionBase {
             putSessionScope(AttributeConst.REPORT, rv);
             putRequestScope(AttributeConst.REPORT, rv); //取得した日報データ
 
+            //全日報データの件数を取得
+            long yoinesCount = service.countAllYoine();
+            putRequestScope(AttributeConst.YOINE_COUNT, yoinesCount); //全てのいいねの件数
+
             //詳細画面を表示
             forward(ForwardConst.FW_REP_SHOW);
         }

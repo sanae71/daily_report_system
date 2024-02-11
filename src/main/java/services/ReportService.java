@@ -47,6 +47,18 @@ public class ReportService extends ServiceBase {
     }
 
     /**
+     * 指定した日報データのいいね件数を取得し、返却する
+     * @param report
+     * @return いいねの件数
+     */
+    public long countAllYoine() {
+        long yoines_count = (long) em.createNamedQuery(JpaConst.Q_YOINE_COUNT, Long.class)
+//                .setParameter(JpaConst.JPQL_PARM_REPORT, id)
+                .getSingleResult();
+        return yoines_count;
+    }
+
+    /**
      * 指定されたページ数の一覧画面に表示する日報データを取得し、ReportViewのリストで返却する
      * @param page ページ数
      * @return 一覧画面に表示するデータのリスト

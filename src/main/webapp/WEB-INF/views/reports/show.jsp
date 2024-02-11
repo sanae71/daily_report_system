@@ -48,7 +48,7 @@
             <form method="POST" action="<c:url value='?action=${actYoi}&command=${commCrt}' />">
                 <input type="hidden" name="${AttributeConst.YOINE_ID.getValue()}" value="${yoine.id}" />
                 <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
-                <button type="submit">いいね</button>
+                <p><button type="submit">いいね</button>：${yoines_count}</p>
             </form>
 
 

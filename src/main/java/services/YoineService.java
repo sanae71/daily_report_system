@@ -2,8 +2,6 @@ package services;
 
 import java.time.LocalDateTime;
 
-import actions.views.ReportConverter;
-import actions.views.ReportView;
 import actions.views.YoineConverter;
 import actions.views.YoineView;
 import constants.JpaConst;
@@ -13,20 +11,6 @@ import models.Yoine;
  * いいねテーブルの操作に関わる処理を行うクラス
  */
 public class YoineService extends ServiceBase {
-
-    /**
-     * 指定した日報のいいねの件数を取得し、返却する
-     * @param employee
-     * @return いいねの件数
-     */
-    public long countAllYoine(ReportView report) {
-
-        long yoine_count = (long) em.createNamedQuery(JpaConst.Q_YOINE_COUNT_ALL_YOINE, Long.class)
-                .setParameter(JpaConst.JPQL_PARM_REPORT, ReportConverter.toModel(report))
-                .getSingleResult();
-
-        return yoine_count;
-    }
 
     /**
      * 画面から入力されたいいねの登録内容を元にデータを1件作成し、いいねテーブルに登録する
