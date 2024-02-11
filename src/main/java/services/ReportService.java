@@ -51,9 +51,9 @@ public class ReportService extends ServiceBase {
      * @param report
      * @return いいねの件数
      */
-    public long countAllYoine() {
-        long yoines_count = (long) em.createNamedQuery(JpaConst.Q_YOINE_COUNT, Long.class)
-//                .setParameter(JpaConst.JPQL_PARM_REPORT, id)
+    public long countAllYoine(ReportView report) {
+        long yoines_count = (long) em.createNamedQuery(JpaConst.Q_YOINE_COUNT_ALL_YOINE, Long.class)
+                .setParameter(JpaConst.JPQL_PARM_REPORT, ReportConverter.toModel(report))
                 .getSingleResult();
         return yoines_count;
     }
